@@ -12,6 +12,8 @@ This repository contains an implementation of a QuadTree in JavaScript, providin
 - **Querying**: Retrieve points within a specified range.
 - **Spatial Partitioning**: Divide space into quadrants for optimized data organization.
 
+![QuadTree Render](assets/quadtree.gif)
+
 ## Usage
 
 To use the QuadTree in your JavaScript project:
