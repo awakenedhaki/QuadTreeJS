@@ -15,7 +15,7 @@ class Boundary {
    * @param {Point} point - The point to check containment for.
    * @returns {boolean} - Returns true if the point is inside the boundary, false otherwise.
    */
-  containsPoints(points) {}
+  containsPoint(points) {}
 
   /**
    * Checks if this boundary intersects with another boundary.
