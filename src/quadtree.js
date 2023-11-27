@@ -133,14 +133,21 @@ class QuadTree {
     }
 
     // Go to children nodes
-    if (this.children.length != 0) {
-      this.children.forEach((child) => {
+    if (this.children.length !== 0) {
+      for (let i = 0; i < this.children.length; i++) {
+        const child = this.children[i];
         child.queryRange(boundary, found);
-      });
+      }
     }
 
     // Collect points within query boundary
-    found.push(...this.points);
+    for (let i = 0; i < this.points.length; i++) {
+      const point = this.points[i];
+      if (boundary.containsPoint(point)) {
+        found.push(point);
+      }
+    }
+
     return found;
   }
 }
