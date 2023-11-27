@@ -107,38 +107,3 @@ class Rectangle extends Boundary {
     return this.x - this.width / 2;
   }
 }
-
-/**
- * Represents a circular boundary in a two-dimensional space.
- * @class Circle
- * @extends Boundary
- */
-class Circle extends Boundary {
-  constructor(centerX, centerY, radius) {
-    super();
-    this.x = centerX;
-    this.y = centerY;
-    this.radius = radius;
-  }
-
-  containsPoint(point) {}
-
-  intersects(boundary) {}
-}
-
-/**
- * Represents a hexagonal boundary in a two-dimensional space.
- * @class Hexagon
- * @extends Boundary
- */
-class Hexagon extends Boundary {
-  constructor(centerX, centerY) {
-    super();
-    this.x = centerX;
-    this.y = centerY;
-  }
-
-  containsPoint(point) {}
-
-  intersects(boundary) {}
-}
