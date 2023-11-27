@@ -35,6 +35,8 @@ function draw() {
 }
 
 function mousePressed() {
+  [queryX1, queryX2, queryY1, queryY2] = [NaN, NaN, NaN, NaN];
+
   queryX1 = mouseX;
   queryY1 = mouseY;
 }
