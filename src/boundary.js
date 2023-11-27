@@ -66,12 +66,12 @@ class Rectangle extends Boundary {
    * @param {Rectangle} rectangle - The boundary to check for intersection.
    * @returns {boolean} - Returns true if there is an intersection, false otherwise.
    */
-  intersects(rectangle) {
-    return (
-      this.topBorder > rectangle.bottomBorder ||
-      this.bottomBorder < rectangle.topBorder ||
-      this.leftBorder > rectangle.rightBorder ||
-      this.rightBorder < rectangle.leftBorder
+  intersects(boundary) {
+    return !(
+      this.topBorder > boundary.bottomBorder ||
+      this.bottomBorder < boundary.topBorder ||
+      this.leftBorder > boundary.rightBorder ||
+      this.rightBorder < boundary.leftBorder
     );
   }
 
