@@ -43,11 +43,12 @@ class QuadTree {
     }
 
     // Recursively call `insert`
-    this.children.forEach((child) => {
+    for (let i = 0; i < this.children.length; i++) {
+      const child = this.children[i];
       if (child.insert(point)) {
         return true;
       }
-    });
+    }
   }
 
   /**
