@@ -69,42 +69,17 @@ class QuadTree {
    * @method QuadTree#subdivide
    */
   subdivide() {
-    let x = this.boundary.x;
-    let y = this.boundary.y;
-    let halfWidth = this.boundary.width / 2;
-    let halfHeight = this.boundary.height / 2;
+    const centerX = this.boundary.x;
+    const centerY = this.boundary.y;
+    const halfWidth = this.boundary.width / 2;
+    const halfHeight = this.boundary.height / 2;
 
-    const boundaryConstructor = this.boundary.constructor;
-    let boundaries = [
-      // North West
-      new boundaryConstructor(
-        x - halfWidth / 2,
-        y - halfHeight / 2,
-        halfWidth,
-        halfHeight
-      ),
-      // North East
-      new boundaryConstructor(
-        x - halfWidth / 2,
-        y + halfHeight / 2,
-        halfWidth,
-        halfHeight
-      ),
-      // South West
-      new boundaryConstructor(
-        x + halfWidth / 2,
-        y - halfHeight / 2,
-        halfWidth,
-        halfHeight
-      ),
-      // South East
-      new boundaryConstructor(
-        x + halfWidth / 2,
-        y + halfHeight / 2,
-        halfWidth,
-        halfHeight
-      ),
-    ];
+    const boundaries = this._generateBoundaries(
+      centerX,
+      centerY,
+      halfWidth,
+      halfHeight
+    );
 
     for (let i = 0; i < boundaries.length; i++) {
       this.children[i] = new QuadTree(boundaries[i], this.capacity);
@@ -113,6 +88,21 @@ class QuadTree {
     // Shifting points to leaves
     this.insertPoints(this.points);
     this.points = [];
+  }
+
+  _generateBoundaries(centerX, centerY, halfWidth, halfHeight) {
+    const boundaryConstructor = this.boundary.constructor;
+
+    const xVariants = [-1, -1, 1, 1];
+    const yVariants = [-1, 1, -1, 1];
+
+    let boundaries = [];
+    for (let i = 0; i < xVariants.length; i++) {
+      const x = centerX + (xVariants[i] * halfWidth) / 2;
+      const y = centerY + (yVariants[i] * halfHeight) / 2;
+      boundaries[i] = new boundaryConstructor(x, y, halfWidth, halfHeight);
+    }
+    return boundaries;
   }
 
   /**
