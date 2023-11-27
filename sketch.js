@@ -4,6 +4,8 @@ let queryX1, queryX2, queryY1, queryY2;
 
 // Setting Constants ===========================================================
 const mintGreenRGB = [201, 237, 220];
+const defaultSize = 2;
+const selectedSize = 7;
 
 // p5js Boilerplate ============================================================
 function setup() {
@@ -28,7 +30,7 @@ function draw() {
   if (query !== null) {
     drawBoundary(query, mintGreenRGB);
     retrievedPoints = qtree.queryRange(query);
-    drawPoints(retrievedPoints, 10);
+    drawPoints(retrievedPoints, selectedSize);
   }
 }
 
@@ -110,7 +112,7 @@ function drawBoundary(boundary, rgb) {
 
 function drawPoints(points, size) {
   if (size === undefined) {
-    size = 2;
+    size = defaultSize;
   }
 
   fill(255);
