@@ -6,13 +6,15 @@ The QuadTree data structure is a hierarchical spatial partitioning method used t
 
 This repository contains an implementation of a QuadTree in JavaScript, providing a structure for spatial partitioning and point insertion/retrieval within a given boundary.
 
+[Play with a QuadTree on p5js!](https://editor.p5js.org/awakenedhaki/sketches/AS8d3Fh5n)
+
+![QuadTree Render](assets/quadtree.gif)
+
 ## Features
 
 - **Insertion**: Efficiently add points into the QuadTree.
 - **Querying**: Retrieve points within a specified range.
 - **Spatial Partitioning**: Divide space into quadrants for optimized data organization.
-
-![QuadTree Render](assets/quadtree.gif)
 
 ## Usage
 
